@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>Luis Hian - Portfólio</title>
+</head>
+
+<body>
+  <div class="particulas"></div>
+
+  <nav class="navegacao">
+    <ul class="menu">
+      <li><a href="#inicio" class="menu-link">Início</a></li>
+      <li><a href="#sobre" class="menu-link">Sobre</a></li>
+      <li><a href="#projetos" class="menu-link">Projetos</a></li>
+      <li><a href="#contatos" class="menu-link">Contatos</a></li>
+    </ul>
+  </nav>
+
+  <main id="inicio" class="cabecalho">
+    <img src="./img/luishian.jpg" alt="Foto de Luis Hian" class="foto-perfil" />
+    <h1>Luis Hian</h1>
+    <p class="cabecalho-sub-titulo">Suporte Técnico</p>
+  </main>
+
+  <section id="sobre" class="sobre">
+    <h2 class="sobre-titulo">Sobre Mim</h2>
+    <div class="sobre-caixa">
+      <p class="sobre-paragrafo">
+        Olá, sou Suporte Técnico! Apaixonado por tecnologia, soluções
+        práticas e por ajudar pessoas a resolverem problemas do dia a dia com
+        agilidade e empatia. Sou formado em Tecnólogo em Administração e
+        atualmente curso Sistemas de Informação, com conhecimentos sólidos em
+        redes de computadores, Active Directory, hardware, Google Workspace,
+        entre outros. Acredito que o sucesso está em unir estabilidade
+        financeira e liberdade de tempo, e é isso que me motiva a buscar
+        sempre o próximo nível — estudando, praticando e me desafiando.
+      </p>
+    </div>
+  </section>
+
+  <section id="projetos" class="projetos">
+    <h2 class="projetos-titulo">Meus Projetos</h2>
+    <div class="projetos-caixa">
+      <div class="projetos-card">
+        <img src="./img/projeto1.jpg" alt="Projeto 1" class="projetos-imagem" />
+        <div class="caixa-textos-projetos">
+          <h3 class="info-projetos">Loja de Carros</h3>
+          <p class="paragrafo-projetos">
+            Loja virtual moderna com animações suaves e design responsivo
+            para uma loja de carros de luxo.
+          </p>
+        </div>
+      </div>
+
+      <div class="projetos-card">
+        <img src="./img/projeto2.jpg" alt="Projeto 2" class="projetos-imagem" />
+        <div class="caixa-textos-projetos">
+          <h3 class="info-projetos">Fullstack</h3>
+          <p class="paragrafo-projetos">
+            Projeto feito para conectar APIs e Banco de Dados como forma de
+            treinamento, utilizando NODE.
+          </p>
+        </div>
+      </div>
+
+      <div class="projetos-card">
+        <img src="./img/projeto3.jpg" alt="Projeto 3" class="projetos-imagem" />
+        <div class="caixa-textos-projetos">
+          <h3 class="info-projetos">Microsoft</h3>
+          <p class="paragrafo-projetos">
+            Página da Microsoft criada para demonstrar conhecimentos em
+            diversas tecnologias.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contatos" class="contatos">
+    <h2 class="contatos-titulo">Entre em Contato</h2>
+
+    <form class="formulario-contato" id="formulario">
+      <div class="grupo-form">
+        <input placeholder="Nome" class="campo-form" id="nome" required />
+      </div>
+
+      <div class="grupo-form">
+        <textarea class="campo-form" placeholder="Digite sua Mensagem" rows="4" id="mensagem" required></textarea>
+      </div>
+
+      <button type="submit" class="botao-form">Enviar Whatsapp</button>
+    </form>
+  </section>
+
+  <script>
+    // Espera o DOM carregar para ativar o evento
+    document.addEventListener('DOMContentLoaded', () => {
+      const formulario = document.getElementById('formulario');
+
+      formulario.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        const nome = document.getElementById('nome').value.trim();
+        const mensagem = document.getElementById('mensagem').value.trim();
+        const telefone = '5571996000514'; // Número com DDI (55) + DDD + número
+
+        if (!nome || !mensagem) {
+          alert('Por favor, preencha todos os campos.');
+          return;
+        }
+
+        const texto = `Olá! Me chamo ${nome}, ${mensagem}`;
+        const msgFormatada = encodeURIComponent(texto);
+        const url = `https://wa.me/${telefone}?text=${msgFormatada}`;
+
+        window.open(url, '_blank');
+      });
+    });
+  </script>
+</body>
+
+</html>
